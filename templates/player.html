@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Playing {{ track.title }} - Music Streaming Platform{% endblock %}
+
+{% block content %}
+<h2>Now Playing: {{ track.title }}</h2>
+<audio controls autoplay>
+    <source src="{{ url_for('stream', track_id=track.id) }}" type="audio/mpeg" />
+    Your browser does not support the audio element.
+</audio>
+<p><a href="{{ url_for('index') }}">Back to list</a></p>
+{% endblock %}

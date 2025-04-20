@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Music Streaming Platform{% endblock %}
+
+{% block content %}
+<h2>Available Music Tracks</h2>
+<ul class="track-list">
+    {% for track in tracks %}
+    <li>
+        <a href="{{ url_for('play', track_id=track.id) }}">{{ track.title }}</a>
+    </li>
+    {% else %}
+    <li>No tracks available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
